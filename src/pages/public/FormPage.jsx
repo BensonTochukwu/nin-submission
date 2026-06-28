@@ -247,30 +247,37 @@ function App() {
                 </label>
 
                 <div className="border-2 border-dashed border-gray-600 rounded-xl p-8 text-center bg-gray-50">
-                  <p className="text-gray-600 mb-4">
-                    Drag and drop your file here or click to browse
+  
+                <p className="text-gray-600 mb-2">
+                  Drag and drop your file here or click to browse
+                </p>
+
+                {/* 👇 File type hint */}
+                <p className="text-xs text-gray-500 mb-4">
+                  Upload: Image or PDF
+                </p>
+
+                <input
+                  type="file"
+                  accept="image/*,.pdf"
+                  className="hidden"
+                  id="file-upload"
+                  onChange={handleFileChange}
+                />
+
+                <label
+                  htmlFor="file-upload"
+                  className="inline-block bg-green-900 hover:bg-green-950 text-white px-6 py-3 rounded-lg cursor-pointer transition"
+                >
+                  Browse Files
+                </label>
+
+                {file && (
+                  <p className="text-sm text-green-900 mt-4 font-medium">
+                    Selected: {file.name}
                   </p>
-
-                  <input
-                    type="file"
-                    className="hidden"
-                    id="file-upload"
-                    onChange={handleFileChange}
-                  />
-
-                  <label
-                    htmlFor="file-upload"
-                    className="inline-block bg-green-900 hover:bg-green-950 text-white px-6 py-3 rounded-lg cursor-pointer transition"
-                  >
-                    Browse Files
-                  </label>
-
-                  {file && (
-                    <p className="text-sm text-green-900 mt-4 font-medium">
-                      Selected: {file.name}
-                    </p>
-                  )}
-                </div>
+                )}
+              </div>
               </div>
 
               <button
