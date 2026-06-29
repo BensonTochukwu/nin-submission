@@ -29,16 +29,18 @@ function Login() {
 
       navigate("/admin/dashboard");
     } catch (error) {
-      console.error(error.response?.data || error.message);
+      console.error(
+        error.response?.data || error.message
+      );
       alert("Invalid credentials");
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <form
         onSubmit={handleLogin}
-        className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md"
+        className="bg-white p-6 sm:p-8 rounded-xl shadow-lg w-full max-w-md"
       >
         <h1 className="text-3xl font-bold text-green-900 mb-6 text-center">
           Admin Login
@@ -56,7 +58,7 @@ function Login() {
             onChange={(e) =>
               setEmail(e.target.value)
             }
-            className="w-full border rounded-lg p-3"
+            className="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-900"
           />
         </div>
 
@@ -72,12 +74,12 @@ function Login() {
             onChange={(e) =>
               setPassword(e.target.value)
             }
-            className="w-full border rounded-lg p-3"
+            className="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-900"
           />
         </div>
 
         <button
-          className="w-full bg-green-900 text-white py-3 rounded-lg"
+          className="w-full bg-green-900 hover:bg-green-950 text-white py-3 rounded-lg transition cursor-pointer"
           type="submit"
         >
           Login
